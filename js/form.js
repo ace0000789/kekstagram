@@ -138,9 +138,9 @@ const unblockSubmitButton = () => {
   submitButton.textContent = SubmitButtonText.REST;
 };
 
-/** обработчик отправки формы */
-const createSendForm = (cb) => {
-  uploadForm.addEventListener('submit', async (evt) => {
+
+const setCallbackForm = (cb) => {
+  uploadForm.addEventListener('submit', async (evt) => { /** установка обработчика для отправки формы */
     evt.preventDefault();
     const isValidate = pristine.validate();
 
@@ -167,4 +167,4 @@ const onFileInputChange = () => {
 
 uploadInput.addEventListener('change', onFileInputChange);
 
-export {onUploadPhoto, createSendForm, closeForm, unblockSubmitButton, onDocumentKeydown as onFormEsc};
+export {onUploadPhoto, setCallbackForm as createSendForm, closeForm, unblockSubmitButton, onDocumentKeydown as onFormEsc};

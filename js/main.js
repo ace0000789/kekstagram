@@ -5,7 +5,7 @@ import {showAlert} from './util.js';
 import {showSuccessMessage, showErrorMessage} from './message.js';
 import {setDelayedFilter, getFilters} from './filters.js';
 
-createSendForm(async (data) => {
+const submitForm = async (data) => {
   try {
     await sendData(data);
     closeForm();
@@ -15,12 +15,14 @@ createSendForm(async (data) => {
   } finally {
     unblockSubmitButton();
   }
-});
+};
+
+createSendForm(submitForm);
 
 try {
   const data = await getData();
   renderGallery(data);
-  getFilters();
+  getFilters();// initFilter
   setDelayedFilter(data);
 } catch (err) {
   showAlert(err.message);
