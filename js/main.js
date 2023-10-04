@@ -3,7 +3,7 @@ import {renderGallery} from './gallery.js';
 import {getData, sendData} from './server.js';
 import {showAlert} from './util.js';
 import {showSuccessMessage, showErrorMessage} from './message.js';
-import {setDelayedFilter, getFilters} from './filters.js';
+import {setDelayedFilter, initFilters} from './filters.js';
 
 const submitForm = async (data) => {
   try {
@@ -22,7 +22,7 @@ createSendForm(submitForm);
 try {
   const data = await getData();
   renderGallery(data);
-  getFilters();// initFilter
+  initFilters();
   setDelayedFilter(data);
 } catch (err) {
   showAlert(err.message);

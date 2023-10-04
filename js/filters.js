@@ -12,7 +12,7 @@ const commentsFilter = document.querySelector('#filter-discussed');
 const filterButtons = document.querySelectorAll('.img-filters__button');
 
 /** показывает фильтры */
-const getFilters = () => imgFilters.classList.remove('img-filters--inactive');
+const initFilters = () => imgFilters.classList.remove('img-filters--inactive');
 
 /** сортирует изображения */
 const filtersPictures = (pictures, choiceButton) => {
@@ -55,4 +55,4 @@ const setDelayedFilter = (pictures) => {
     onFilterClick(evt, pictures);
   });
 };
-export {setDelayedFilter, getFilters};
+export {setDelayedFilter, initFilters};
